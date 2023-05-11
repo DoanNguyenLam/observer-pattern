@@ -13,22 +13,27 @@ public class CaBienChuXi implements ChuXi {
     }
 
     @Override
-    public void detach(User user) {
+    public void paid(User user) {
+        String userName = user.getClass().toString().replace("class ", "");
+        System.out.println(userName + " - đã trả tiền !!!!");
+        System.out.println("\t\t-------------\n");
         userList.remove(user);
     }
 
     @Override
     public void thongBaoTraTien(Long money) {
-        System.out.println("Hom nay co: " + userList.size() + " nguoi dat com");
+        System.out.println("Hôm nay có: " + userList.size() + " người đặt cơm");
         for (User u: userList) {
             String userName = u.getClass().toString().replace("class ", "");
-            System.out.println("Dat com cho: " + userName);
+            System.out.println("\tĐặt cơm cho: " + userName);
         }
 
         NumberFormat numberFormat = NumberFormat.getNumberInstance(Locale.US);
         String strFormat = numberFormat.format(money);
+
+        System.out.println("\n\t******** Đòi nợ time ********");
         for (User u: userList) {
-            u.reminded("Please give me " + strFormat + " VND back");
+            u.notify("Làm ơn trả " + strFormat + " VND lại cho Cá Biển !");
         }
     }    
 }

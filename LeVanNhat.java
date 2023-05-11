@@ -1,4 +1,4 @@
-public class NguyenVietTrung implements User {
+public class LeVanNhat implements User {
 
     @Override
     public void notify(String msg) {

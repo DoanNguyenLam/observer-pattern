@@ -1,3 +1,3 @@
 public interface User {
-    public void reminded(String msg);
+    public void notify(String msg);
 }
